@@ -5,7 +5,7 @@
 <h2>Features</h2>
 
 <h2>Technology</h2>
-
+Vue.js | Node.js | Express.js | AWS S3 | PostgreSQL
 
 <h2>Preview</h2>
 
