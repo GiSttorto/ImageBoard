@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <title>Image|Board</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div id="main">
+
+        <h1>ImageBoard</h1>
+        <hr>
+        <form id="form">
+            <input v-model = 'form.title' type="text" name="title" placeholder="Title">
+            <input v-model = 'form.description' type="text" name="description" placeholder="Description">
+            <input v-model = 'form.username' type="text" name="username" placeholder="Username">
+            <input type="file" accept="image/*" name="file" @change = 'handleFileChange'>
+            <button @click = 'uploadFile'>Upload!</button>
+        </form>
+        <hr>
+        <div id="container">
+            <div v-for='image in images' @click="openImage(image.id)">
+
+            <a :href=" '#' + image.id">
+                <div id="images">
+                    <img v-bind:src= "image.url" :id="image.id" >
+                </a>
+
+                    <h3> {{image.title}} </h3>
+                    <p> {{image.description}} </p>
+
+                </div>
+            </div>
+                <hr>
+                 <button  @click='moreImg'>More</button>
+
+
+            <p v-if= 'images.length === 0'>...</p>
+        </div>
+
+        <getimage v-if='imageId' :id='imageId'>
+        </getimage>
+
+
+    </div>
+
+
+
+
+
+    <script type="text/x-template" id="algumaimagem">
+
+
+            <div id="teste">
+
+                <div id="box-two">
+
+                    <a class='exitModal' href='#' v-on:click='exit'>x</a>
+                    <img v-bind:src="image.url">
+                    <h2>{{image.title}} </h2>
+                    <h3>{{image.description}} </h3>
+                    <p> Username: {{image.username}} </p>
+                    <p> Posted at: {{image.created_at}}</p>
+
+                    <hr>
+
+                    <form>
+                        <input  v-model="form.comment" type="text" name="comment" placeholder="Comment">
+                        <input  v-model="form.otherUser" type="text" name="otherUser" placeholder="Username">
+                        <button @click = 'createComment'>Submit!</button>
+
+                    </form>
+
+
+
+                    <div v-for = "comment in comments" id="comments">
+                        <h2>posted by {{ comment.username}}</h2><h4>| at {{comment.created_at}}</h4>
+                        <p>{{ comment.comment }}</p>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+    </script>
+
+
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/vue.js"></script>
+    <script src="/js/script.js"></script>
+
+
+</body>
+</html>

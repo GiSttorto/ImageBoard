@@ -1,0 +1,92 @@
+body {
+    width: auto;
+    margin: 20px;
+    text-align: center;
+    background: silver;
+    font-family: "Courier New", Courier, monospace;
+}
+
+
+input {
+    margin: 5px;
+    border: 1px solid black;
+    width: 250px;
+}
+
+hr {
+    width: 1200px;
+}
+
+#form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#images {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 450px;
+    border: 1px solid black;
+    margin: 5px;
+    background-color: white;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+#container img {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+
+
+#box-two {
+    position: absolute;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: black;
+    height: auto;
+    width: 800px;
+}
+
+#box-two img {
+    width: 500px;
+    height: 500px;
+}
+
+#box-two hr {
+    width: 800px;
+}
+
+#background {
+    width: 100%;
+    height: auto;
+    background-color: grey;
+}
+
+#comments {
+    color: white;
+}
+
+#teste {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin: 0;
+    height: 1200px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: grey;
+}
