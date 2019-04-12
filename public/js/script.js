@@ -94,6 +94,8 @@
         el: "#main",
 
         data: {
+            lastId: true,
+            seeMoreImages: true,
             images: [],
             form: {
                 title: '',
@@ -158,6 +160,25 @@
                 this.form.file = e.target.files[0]
                 // console.log("this: ", this);
             },
+
+            seeMore: function(event) {
+              event.preventDefault();
+              var whatever = this;
+              console.log("We want this!", whatever);
+              var lastId = whatever.images[whatever.images.length - 1].id;
+
+              axios.get("/seeMore/" + lastId).then(function(data) {
+                  console.log("this is dataaaaa: ", data);
+                  let something =
+                      data.data.rows[data.data.rows.length - 1].id;
+                  if (something == whatever.lastId) {
+                      whatever.seeMoreImages = null;
+                  }
+                  for (var i = 0; i < data.data.rows.length; i++) {
+                      whatever.images.push(data.data.rows[i]);
+                  }
+              });
+          },
 
 
             uploadFile: function(e) {

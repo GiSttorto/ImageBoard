@@ -64,7 +64,7 @@ app.post('/upload', uploader.single('file'), s3.upload, function(req, res) {
                 res.json(results.rows)
                 })
                 .catch(err => {
-                    console.log("error: ", err);
+                    console.log("error upload: ", err);
                 })
     } else {
         res.json({
@@ -84,7 +84,7 @@ app.get("/get-image/:id", function(req, res){
             res.json(results.rows[0]);
         })
         .catch(err => {
-            console.log("error:", err);
+            console.log("error get-image:", err);
         });
 });
 
@@ -115,7 +115,7 @@ app.get("/get-comment/:id", (req, res) => {
             // console.log("results getComment: ", results.rows);
             res.json(results.rows);
     }).catch(err => {
-        console.log("error: ", err);
+        console.log("error get-comment: ", err);
     })
 });
 
@@ -125,10 +125,11 @@ app.get("/more-img/:id", (req, res) => {
     // console.log("lastId server: ", lastId);
     db.moreImg(lastId)
         .then(results => {
-            console.log("results: ", results);
+            // console.log("results: ", results);
             res.json(results);
         });
 });
+
 
 
 

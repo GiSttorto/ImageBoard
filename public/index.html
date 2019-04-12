@@ -9,13 +9,15 @@
 
         <h1>ImageBoard</h1>
         <hr>
-        <form id="form">
-            <input v-model = 'form.title' type="text" name="title" placeholder="Title">
-            <input v-model = 'form.description' type="text" name="description" placeholder="Description">
-            <input v-model = 'form.username' type="text" name="username" placeholder="Username">
-            <input type="file" accept="image/*" name="file" @change = 'handleFileChange'>
-            <button @click = 'uploadFile'>Upload!</button>
-        </form>
+        <div id="board">
+            <form id="form">
+                <input v-model = 'form.title' type="text" name="title" placeholder="Title" autocomplete="off">
+                <input v-model = 'form.description' type="text" name="description" placeholder="Description" autocomplete="off">
+                <input v-model = 'form.username' type="text" name="username" placeholder="Username">
+                <input  type="file" accept="image/*" name="file" @change = 'handleFileChange'>
+                <button @click = 'uploadFile'><strong>Upload!</strong></button>
+            </form>
+        </div>
         <hr>
         <div id="container">
             <div v-for='image in images' @click="openImage(image.id)">
@@ -31,7 +33,7 @@
                 </div>
             </div>
                 <hr>
-                 <button  @click='moreImg'>More</button>
+                 <button @click='moreImg' v-if="seeMoreImages"><strong>See More</strong></button>
 
 
             <p v-if= 'images.length === 0'>...</p>
@@ -50,7 +52,9 @@
     <script type="text/x-template" id="algumaimagem">
 
 
-            <div id="teste">
+            <div id="modal">
+
+                <div id="box"></div>
 
                 <div id="box-two">
 
@@ -63,18 +67,18 @@
 
                     <hr>
 
-                    <form>
+                    <form id="form-2">
                         <input  v-model="form.comment" type="text" name="comment" placeholder="Comment">
                         <input  v-model="form.otherUser" type="text" name="otherUser" placeholder="Username">
-                        <button @click = 'createComment'>Submit!</button>
+                        <button @click = 'createComment'><strong>Submit<strong></button>
 
                     </form>
 
 
 
                     <div v-for = "comment in comments" id="comments">
-                        <h2>posted by {{ comment.username}}</h2><h4>| at {{comment.created_at}}</h4>
-                        <p>{{ comment.comment }}</p>
+                        <h3>Commented by {{ comment.username}}</h3><h4>| at {{comment.created_at}}</h4>
+                        <p>Comment: {{ comment.comment }}</p>
                     </div>
 
 
