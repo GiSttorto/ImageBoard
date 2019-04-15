@@ -12,8 +12,14 @@ Vue.js | Node.js | Express.js | AWS S3 | PostgreSQL
 <h3><b>Upload new image</b></h3>
 <img src="https://media.giphy.com/media/82x6GXqCii1hQBLFgk/giphy.gif" height="400px" width="750px">
 
+<br />
+<br />
 
+<h3><b>See More button</b></h3>
 <img src="https://media.giphy.com/media/Aiq88lTDXSLLuuiqN9/giphy.gif" height="400px" width="750px">
 
+<br />
+<br />
 
+<h3><b>Add Comment</b></h3>
 <img src="https://media.giphy.com/media/pb9ULbRZF1cjsUFhUT/giphy.gif" height="400px" width="750px">
